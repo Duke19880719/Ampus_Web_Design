@@ -1,0 +1,147 @@
+﻿@model WebApplication2.Models.Customer
+@{
+    ViewBag.Title1 = "Vendor_Information";
+
+}
+<div id="ProductInformation_bg" class="container-fluid">
+    <div class="row" style="z-index:3;position:absolute;margin-top:20px;width:100%;height:100%;">
+        <div class="col-2 col-lg-2">
+
+        </div>
+
+        <div class="col-8 col-lg-8" >
+            <p style="margin-bottom:50px;">
+                <a href="@Url.Action("MainPageSearch","MainPage")">
+                    <span class="glyphicon glyphicon-home" style="color:aliceblue;font-size:25px;">&nbsp;HomePage</span>
+                </a>
+                <span class="glyphicon glyphicon-menu-right" style="color:aliceblue;font-size:15px;font-weight:bold;"></span>
+                <a href="@Url.Action("Vendor_login","MainPage")">
+                    <span style="color:aliceblue;font-size:25px;">&nbsp;廠商登入</span>
+                </a>
+                <span class="glyphicon glyphicon-menu-right" style="color:aliceblue;font-size:15px;font-weight:bold;"></span>
+                <span style="color:aliceblue;font-size:25px;">會員資料</span>
+            </p>
+            <p style="margin-left:50px;color:aliceblue;font-size:25px;font-weight:bold;border-bottom-color:darkgrey;border-bottom:solid 5px;">Choise Your Action</p>
+            <button id="button_hover" class="edit_data" style="margin-top:10px;margin-left:50px;background-color:rgba(255,255,204,0.2);"><p style="font-size:25px;color:aliceblue;font-weight:bold;">Edit Data</p></button>
+            <button id="button_hover" class="delete_data" style="margin-top:10px;margin-left:50px;background-color:rgba(255,255,204,0.2);" onclick="DeleteData()"><p style="font-size:25px;color:aliceblue;font-weight:bold;">Delete Data</p></button>
+            <div id="NotMember" style="margin-top:10px;margin-left:50px;display:none">
+                @*<p>非會員</p>*@
+                @using (Ajax.BeginForm("Vendor_Information_Edit", "MainPage", new AjaxOptions() { HttpMethod = "POST" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <p style="color:aliceblue;font-size:25px;font-weight:bold;border-bottom-color:darkgrey;border-bottom:solid 5px;">編輯會員資料</p>
+
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-4">
+
+                            <label style="color:lightyellow;font-weight:bold;font-size:20px;text-shadow: black 0.1em 0.1em 0.2em;">Name</label><br />
+                            @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control", style = "width: 150px;height:50px;font-size:18px;" } })<br />
+                            @Html.ValidationMessageFor(model => model.CustomerName, "", htmlAttributes: new { @class = "", style = "font-size:18px; font-weight:bold;color:	#FF4500;" })
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-4">
+
+                            <label style="color:lightyellow;font-weight:bold;font-size:20px;text-shadow: black 0.1em 0.1em 0.2em;">CompanyName</label><br />
+                            @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control", style = "width: 150px;height:50px;font-size:18px;margin-right:145px;" } })<br />
+                            @Html.ValidationMessageFor(model => model.CompanyName, "", htmlAttributes: new { @class = "", style = "font-size:18px; font-weight:bold;color:	#FF4500;" })
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-4">
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-4">
+                            <label style="color:lightyellow;font-weight:bold;font-size:20px;margin-right:225px;text-shadow: black 0.1em 0.1em 0.2em;">Gender</label><br />
+                            @Html.DropDownListFor(model => model.Gender, (IEnumerable<SelectListItem>)ViewData["display_GenderChoise"], htmlAttributes: new { @id = "DropDownList_Id", @class = "", style = "width: 150px;height:50px;font-size:18px;" })<br />
+                            @Html.ValidationMessageFor(model => model.Gender, "", htmlAttributes: new { @class = "", style = "font-size:18px; font-weight:bold;color:	#FF4500;" })
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-4">
+                            <label style="color:lightyellow;font-weight:bold;font-size:20px;margin-right:242px;text-shadow: black 0.1em 0.1em 0.2em;">PhoneNumber</label><br />
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", style = "width: 250px;height:50px;font-size:18px;" } })<br />
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", htmlAttributes: new { @class = "", style = "font-size:18px; font-weight:bold;color:	#FF4500;" })
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-4">
+                            <label style="color:lightyellow;font-weight:bold;font-size:20px;text-shadow: black 0.1em 0.1em 0.2em;">Adress</label><br />
+                            @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control", style = "width: 250px;height:50px;font-size:18px;" } })<br />
+                            @Html.ValidationMessageFor(model => model.Adress, "", htmlAttributes: new { @class = "", style = "font-size:18px; font-weight:bold;color:	#FF4500;" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-4">
+                            <label style="color:lightyellow;font-weight:bold;font-size:20px;text-shadow: black 0.1em 0.1em 0.2em;">Account</label><br />
+                            @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control", style = "width: 150px;height:50px;font-size:18px;" } })<br />
+                            @Html.ValidationMessageFor(model => model.Account, "", htmlAttributes: new { @class = "", style = "font-size:18px; font-weight:bold;color:	#FF4500;" })<br />
+
+
+
+                            <label style="color:lightyellow;font-weight:bold;font-size:20px;text-shadow: black 0.1em 0.1em 0.2em;">PassWord</label><br />
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", style = "width: 150px;height:50px;font-size:18px;" } }) <br />
+                            @Html.ValidationMessageFor(model => model.Password, "", htmlAttributes: new { @class = "", style = "font-size:18px; font-weight:bold;color:	#FF4500;" })<br />
+                            <input type="submit" value="Save" class="btn btn-primary" style="margin-top:10px;width: 150px;height:50px;font-size:25px;" />
+                        </div>
+
+                        <div class="col-md-8 col-lg-8 col-sm-8">
+
+                            @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "", style = "font-size:18px; font-weight:bold;color:	#FF4500;" })
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+        <div class="col-2 col-lg-2">
+
+        </div>
+
+
+    </div>
+</div>
+<script type="text/javascript">
+    @*來源網址:
+    https://nimblegecko.com/how-to-set-default-selected-value-on-drop-down-list-from-database/
+    DropDownListFor 在model 有值的情況下,會忽略selectlist 的預設 selected,
+    造成view 無法顯示的情況,測試過無model data 情況下,DropDownListFor 有正常顯示*@
+
+    //修正DropDownListFor 在model 有值的情況下, 會忽略selectlist 的預設 selected
+    //以前端收取後端值,jquery 修改value
+    var DataSelected = (@ViewBag.check_who_select);
+    window.onload = CheckSelect;
+    function CheckSelect() {
+      
+        $(DropDownList_Id).children().each(function () {
+            
+            if ($(this).val() == DataSelected) {
+                
+                $(this).attr("selected", "true"); 
+            }
+        });
+        
+    }
+    $(button_hover).hover(function () {
+
+        $(this).css({ "border-color": "#FFFF99" });
+        $(this).children().css({"color": "#FFFF99"});
+    }, function () {
+            $(this).css({ "border-color": "white"}); 
+            $(this).children().css({"color": "aliceblue"});
+    })
+    $('.edit_data').click(function () {
+        $(NotMember).css({"display":"block"})
+    })
+
+    function DeleteData() {
+        alert("DeleteData");
+        $.ajax({
+            type: "Post",
+            url: '/MainPage/Vendor_Information_Delete',
+            data: JSON.stringify({ }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: true
+        })
+    }
+
+</script>
+
+

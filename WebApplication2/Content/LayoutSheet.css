@@ -1,0 +1,102 @@
+﻿body, html {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0px;
+    margin-bottom:0px;
+    bottom:0;
+}
+body {
+    overflow-x: hidden;
+}
+footer {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    bottom:0;
+    /*margin-top:0;*/
+    margin-bottom:0;
+    background-image:url(/Content/image/bernard-hermant-741798-unsplash.jpg);
+    background-position:center;
+    background-size:auto;
+    padding-top:15px;
+}
+#footer_ul {
+    width: 100%;
+    height: 100%;
+    
+}
+    #footer_ul li {
+        float: left;
+        margin-right: 20px;
+        width:auto;
+        font-size:1.2em;
+      
+    }
+    #footer_ul li label{
+        margin-right:5px;
+
+    }
+    #footer_ul li a {
+        color: whitesmoke;
+        font-weight: bold;
+        text-shadow: black 0.1em 0.1em 0.2em;
+    }
+/*ProductInformation controller css*/
+#ProductInformation_bg {
+    background-image: url(/Content/image/dreams_dont_work_unless_you_do_2-wallpaper-1920x1080.jpg);
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+   
+}
+/*@supports 使edge 瀏覽器達到模糊效果語法能使用*/
+@supports (-ms-ime-align:auto) {
+    #ProductInformation_bg::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: inherit;
+        filter: blur(10px);
+        z-index: 2;
+    }
+}
+/* (chrome適用) 一般模糊效果語法*/
+#ProductInformation_bg:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: inherit;
+    filter: blur(10px);
+    z-index: 2;
+}
+/*css filter: blur 目前ie 還無法支援,只能用svg 標籤來做出效果*/
+
+
+    .card {
+        display: inline-block;
+        margin-left: 10px;
+        visibility: hidden;
+        /*display:none;*/
+    }
+
+    #change_page_info {
+        visibility: hidden;
+    }
+
+
+    #button_style {
+        background-color: white;
+        border: 2px gray solid;
+        font-size: 22px;
+    }
+   

@@ -1,0 +1,461 @@
+﻿@{
+    ViewBag.Title = "ProductInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+    <div id="ProductInformation_bg" class="container-fluid">
+        <div class="row" style="z-index:3;position:absolute;margin-top:20px;width:100%;height:100%;">
+            <div class="col-2 col-lg-2" style="height:30px;"></div>
+            <div class="col-8 col-lg-8" style="height:30px;">
+                <p>
+                    <a href="@Url.Action("MainPageSearch", "MainPage")" class="active">
+                        <span class="glyphicon glyphicon-home" style="color:aliceblue;font-size:25px;">&nbsp;HomePage</span>
+                    </a>
+                    <span class="glyphicon glyphicon-menu-right" style="color:aliceblue;font-size:15px;"></span>
+                    <a href="@Url.Action("ProductInformation", "MainPage")" class="active">
+                        <span style="color:aliceblue;font-size:25px;">&nbsp;產品資訊</span>
+                    </a>
+                </p>
+            </div>
+            <div class="col-2 col-lg-2" style="height:30px;"></div>
+
+            @*換行啦*@
+            <div class="w-100"></div>
+
+            <div class="col-2 col-lg-2"></div>
+            <div class="col-2 col-lg-2" style="border-right:solid;border-right-width:2px;border-right-color:aliceblue;padding:5px;height:85%;margin-top:20px;">
+                <h3 style="color:lightgray;text-align:center;">產品搜尋</h3>
+                <div class="form-group" style="text-align:center;">
+                    <select id="selectitem" style="width:80%;height:50px;border:outset;border-width:2px;border-color:lightgray;font-size:20px;">
+                        <option value="default_value" selected="selected"></option>
+                        <option value="光學辨識" style="font-size:18px;">光學辨識</option>
+                        <option value="光學辨識-點讀筆" style="font-size:18px;">光學辨識-點讀筆</option>
+                        <option value="光學辨識-播放盒" style="font-size:18px;">光學辨識-播放盒</option>
+                        <option value="光學辨識-其它" style="font-size:18px;">光學辨識-其它</option>
+                        <option value="消費電子" style="font-size:18px;">消費電子</option>
+                        <option value="消費電子-免治馬桶控制組件" style="font-size:18px;">消費電子-免治馬桶控制組件</option>
+                        <option value="消費電子-科學玩具" style="font-size:18px;">消費電子-科學玩具</option>
+                        <option value="消費電子-手機周邊" style="font-size:18px;">消費電子-手機周邊</option>
+                       
+                    </select>
+
+                </div>
+
+                <div style="text-align:center;color:aliceblue;">
+                    <ul id="ul1">
+                        <li id="li1" class="menu_data_1"><h3>光學辨識</h3></li>
+                        <li id="li11" class="menu_data_2" style="display:block;"><h3>>>點讀筆</h3></li>
+                        <li id="li11" class="menu_data_3" style="display:block;"><h3>>>播放盒</h3></li>
+                        <li id="li11" class="menu_data_4" style="display:block;"><h3>>>其他</h3></li>
+                    </ul>
+                    <hr style="border:1px dashed aliceblue;" width="100%" SIZE=3>
+                    <ul id="ul1">
+                        <li id="li2" class="menu_data_5"><h3>消費電子</h3></li>
+                        <li id="li21" class="menu_data_6" style="display:none;"><h3>>>免治馬桶控制組件</h3></li>
+                        <li id="li21" class="menu_data_7" style="display:none;"><h3>>>科學玩具</h3></li>
+                        <li id="li21" class="menu_data_8" style="display:none;"><h3>>>手機周邊</h3></li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <div id="product_info_div" class="col-6 col-lg-6"style="margin-bottom:0px;height:100%;">
+                <div id="header" style="border-bottom:solid;border-bottom-width:2px;border-bottom-color:aliceblue;padding:5px;">
+                    <h1 style="float:left;color:aliceblue;"><b>PRODUCTS</b></h1><h3 style="color:lightgray;"><b>&nbsp;&nbsp;產品分類列表</b></h3>
+                </div>
+                <br />
+                <div class="card-deck">
+                    <div id="card1" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut (1).jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">AP-708編程益智機器人</p>
+                        </div>
+                    </div>
+
+                    <div id="card2" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 2.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">無線故事播放機</p>
+                        </div>
+                    </div>
+
+                    <div id="card3" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 3.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">無線接收器Dongle</p>
+                        </div>
+                    </div>
+
+                    <div id="card4" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 4.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">無線電視播放盒</p>
+                        </div>
+                    </div>
+
+                    <div id="card5" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 5.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">無線MP3播放盒</p>
+                        </div>
+                    </div>
+
+                    <div id="card6" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 6.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">AP-618 點讀筆</p>
+                        </div>
+                    </div>
+
+                    <div id="card7" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 7.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">AP-614點讀筆</p>
+                        </div>
+                    </div>
+
+                    <div id="card8" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 8.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">AP-613點讀筆</p>
+                        </div>
+                    </div>
+
+                    <div id="card9" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 9.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">AP-608點讀筆</p>
+                        </div>
+                    </div>
+
+                    <div id="card10" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 10.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">AP-607點讀筆</p>
+                        </div>
+                    </div>
+
+                    <div id="card11" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 11.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">AP-605點讀筆</p>
+                        </div>
+                    </div>
+
+                    <div id="card12" class="card rounded" style="width:190px;background:white;border-radius:10px;padding:6px;margin-top:5px;">
+                        <img class="card-img-top" src="~/Content/image/DisplayCut 13.jpg" alt="Card image cap" style="width:170px;height:170px;border-radius:10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="color:black;text-align:center;font-size:15px;">AP-603無線傳輸點讀筆</p>
+                        </div>
+                    </div>
+
+                     <div id="change_page_info" style="margin-top:5px;margin-bottom:5px;text-align:center;height:35px;padding:5px;"> <button id="button_style" class="bt1_action">Page 1</button> <button id="button_style" class="bt2_action">Page 2</button> </div>
+                </div>
+
+            </div>
+
+            <div class="col-2 col-lg-2"></div>
+        </div>   
+    </div>
+    <script type="text/javascript">
+        $(selectitem).change(function () {
+            switch ($(selectitem).val()) {
+                case "光學辨識":
+                    $(".card").css({ "display": "none" });
+                    $(".card").css({ "display": "inline-block" });
+                    $(".card").css("visibility", "visible");
+                    $(change_page_info).css({ "display": "block" });
+                    $(change_page_info).css("visibility", "visible");
+
+                    break;
+                case "光學辨識-點讀筆":
+                    $(".card").css({ "display": "none" });
+
+                    $(card6).css({ "display": "inline-block" });
+                    $(card7).css({ "display": "inline-block" });
+                    $(card8).css({ "display": "inline-block" });
+                    $(card9).css({ "display": "inline-block" });
+                    $(card10).css({ "display": "inline-block" });
+                    $(card11).css({ "display": "inline-block" });
+                    $(card12).css({ "display": "inline-block" });
+                    $(".card").css({ "visibility": "visible" });
+                    $(change_page_info).css({ "display": "none" });
+                    break;
+                case "光學辨識-播放盒":
+                    $(".card").css({ "display": "none" });
+
+                    $(card4).css({ "display": "inline-block" });
+                    $(card5).css({ "display": "inline-block" });
+
+                    $(".card").css({ "visibility": "visible" });
+                    $(change_page_info).css({ "display": "none" });
+                    break;
+                case "光學辨識-其它":
+                    $(".card").css({ "display": "none" });
+
+                    $(card1).css({ "display": "inline-block" });
+                    $(card2).css({ "display": "inline-block" });
+                    $(card3).css({ "display": "inline-block" });
+
+                    $(".card").css({ "visibility": "visible" });
+                    $(change_page_info).css({ "display": "none" });
+                    break;
+                case "消費電子":
+                    $(".card").css({ "display": "none" });
+
+                    $(card1).css({ "display": "inline-block" });
+                    $(card2).css({ "display": "inline-block" });
+                    $(card3).css({ "display": "inline-block" });
+                    $(card4).css({ "display": "inline-block" });
+                    $(card5).css({ "display": "inline-block" });
+
+                    reset_ConsumerElectronics_card();
+
+                    $(change_page_info).css({ "display": "none" });
+                    $(".card").css({ "visibility": "visible" });
+                    break;
+                case "消費電子-免治馬桶控制組件":
+                    $(".card").css({ "display": "none" });
+
+                    $(card1).css({ "display": "inline-block" });
+                    $(card2).css({ "display": "inline-block" });
+                    $(card3).css({ "display": "inline-block" });
+
+                    reset_ConsumerElectronics_card();
+
+                    $(".card").css({ "visibility": "visible" });
+                    $(change_page_info).css({ "display": "none" });
+                    break;
+                case "消費電子-科學玩具":
+                    $(".card").css({ "display": "none" });
+
+                    $(card4).css({ "display": "inline-block" });
+
+                    reset_ConsumerElectronics_card();
+
+                    $(".card").css({ "visibility": "visible" });
+                    $(change_page_info).css({ "display": "none" });
+                    break;
+                case "消費電子-手機周邊":
+                    $(".card").css({ "display": "none" });
+
+                    $(card5).css({ "display": "inline-block" });
+
+                    reset_ConsumerElectronics_card();
+
+                    $(".card").css({ "visibility": "visible" });
+                    $(change_page_info).css({ "display": "none" });
+                    break;
+
+                default:
+                    break;
+            }
+        });
+
+        $(ul1).children().hover(function () {
+            $(this).children().css({ "color": "orange", "font-size": "35px", "font-weight": "900" })
+        }, function () {
+            $(this).children().css({ "color": "aliceblue", "font-size": "1.7em", "font-weight": "normal" })
+        });
+
+        $(li2).click(function () {
+            $(li21).css("display", "block");
+            $(li11).css("display", "none");
+        });
+
+        $(li1).click(function () {
+            $(li11).css("display", "block");
+            $(li21).css("display", "none");
+
+            $(".card").css({ "display": "none" });
+
+            $(card1).find("img").attr("src", "/Content/image/DisplayCut (1).jpg");
+            $(card1).find("p").html("AP-708編程益智機器人");
+
+            $(card2).find("img").attr("src", "/Content/image/DisplayCut 2.jpg");
+            $(card2).find("p").html("無線故事播放機");
+
+            $(card3).find("img").attr("src", "/Content/image/DisplayCut 3.jpg");
+            $(card3).find("p").html("無線接收器Dongle");
+
+            $(card4).find("img").attr("src", "/Content/image/DisplayCut 4.jpg");
+            $(card4).find("p").html("無線電視播放盒");
+
+            $(card5).find("img").attr("src", "/Content/image/DisplayCut 5.jpg");
+            $(card5).find("p").html("無線MP3播放盒");
+
+            $(".card").css({ "display": "inline-block" });
+            $(".card").css("visibility", "visible");
+            $(change_page_info).css({ "display": "block" });
+            $(change_page_info).css("visibility", "visible");
+        });
+
+
+        $(".card").hover(function () {
+            $(this).css("border", "6px orange solid ");
+
+        }, function () {
+            $(this).css("border", "0px white solid ");
+        });
+
+        $(button_style).hover(function () {
+            $(this).css({ "background-color": "orange", "color": "white" });
+
+        }, function () {
+            $(this).css({ "background-color": "white", "color": "black" });
+        });
+
+        $(".bt2_action").click(function () {
+            $(".card").css({ "visibility": "hidden" });
+            $(card1).find("img").attr("src", "/Content/image/DisplayCut 14.jpg");
+            $(card1).find("p").html("AP-602無線傳輸點讀筆");
+            $(card1).css({ "visibility": "visible" });
+        })
+
+        $(".bt1_action").click(function () {
+
+            $(card1).css({ "visibility": "hidden" });
+            $(card1).find("img").attr("src", "/Content/image/DisplayCut (1).jpg");
+            $(card1).find("p").html("AP-708編程益智機器人");
+            $(".card").css({ "visibility": "visible" });
+        })
+
+        $(".menu_data_2").click(function () {
+
+            $(".card").css({ "display": "none" });
+
+            $(card6).css({ "display": "inline-block" });
+            $(card7).css({ "display": "inline-block" });
+            $(card8).css({ "display": "inline-block" });
+            $(card9).css({ "display": "inline-block" });
+            $(card10).css({ "display": "inline-block" });
+            $(card11).css({ "display": "inline-block" });
+            $(card12).css({ "display": "inline-block" });
+
+            $(change_page_info).css({ "display": "none" });
+            $(".card").css({ "visibility": "visible" });
+
+        })
+
+        $(".menu_data_3").click(function () {
+
+            $(".card").css({ "display": "none" });
+
+            $(card4).css({ "display": "inline-block" });
+            $(card5).css({ "display": "inline-block" });
+
+            $(change_page_info).css({ "display": "none" });
+            $(".card").css({ "visibility": "visible" });
+
+        })
+
+        $(".menu_data_4").click(function () {
+
+            $(".card").css({ "display": "none" });
+
+            $(card1).css({ "display": "inline-block" });
+            $(card2).css({ "display": "inline-block" });
+            $(card3).css({ "display": "inline-block" });
+
+            $(change_page_info).css({ "display": "none" });
+            $(".card").css({ "visibility": "visible" });
+
+        })
+
+
+
+        $(".menu_data_5").click(function () {
+
+            $(".card").css({ "display": "none" });
+
+            $(card1).css({ "display": "inline-block" });
+            $(card2).css({ "display": "inline-block" });
+            $(card3).css({ "display": "inline-block" });
+            $(card4).css({ "display": "inline-block" });
+            $(card5).css({ "display": "inline-block" });
+
+            $(card1).find("img").attr("src", "/Content/image/DisplayCut111.jpg");
+            $(card1).find("p").html("AP80103 免治馬桶控制器");
+
+            $(card2).find("img").attr("src", "/Content/image/DisplayCut112.jpg");
+            $(card2).find("p").html("AP80104 免治馬桶遙控器");
+
+            $(card3).find("img").attr("src", "/Content/image/DisplayCut113.jpg");
+            $(card3).find("p").html("AP80105 免治馬桶控制器");
+
+            $(card4).find("img").attr("src", "/Content/image/DisplayCut114.jpg");
+            $(card4).find("p").html("AP-CD002 飛行控制器");
+
+            $(card5).find("img").attr("src", "/Content/image/DisplayCut115.jpg");
+            $(card5).find("p").html("AP-CD001 手機遙控器");
+
+            $(change_page_info).css({ "display": "none" });
+            $(".card").css({ "visibility": "visible" });
+
+        })
+
+        $(".menu_data_6").click(function () {
+
+            $(".card").css({ "display": "none" });
+
+            $(card1).css({ "display": "inline-block" });
+            $(card2).css({ "display": "inline-block" });
+            $(card3).css({ "display": "inline-block" });
+
+            $(change_page_info).css({ "display": "none" });
+            $(".card").css({ "visibility": "visible" });
+
+        })
+
+        $(".menu_data_7").click(function () {
+
+            $(".card").css({ "display": "none" });
+
+            $(card4).css({ "display": "inline-block" });
+
+
+            $(change_page_info).css({ "display": "none" });
+            $(".card").css({ "visibility": "visible" });
+
+        })
+
+        $(".menu_data_8").click(function () {
+
+            $(".card").css({ "display": "none" });
+
+            $(card5).css({ "display": "inline-block" });
+
+
+            $(change_page_info).css({ "display": "none" });
+            $(".card").css({ "visibility": "visible" });
+
+        })
+
+
+
+
+        function reset_ConsumerElectronics_card() {
+
+            $(card1).find("img").attr("src", "/Content/image/DisplayCut111.jpg");
+            $(card1).find("p").html("AP80103 免治馬桶控制器");
+
+            $(card2).find("img").attr("src", "/Content/image/DisplayCut112.jpg");
+            $(card2).find("p").html("AP80104 免治馬桶遙控器");
+
+            $(card3).find("img").attr("src", "/Content/image/DisplayCut113.jpg");
+            $(card3).find("p").html("AP80105 免治馬桶控制器");
+
+            $(card4).find("img").attr("src", "/Content/image/DisplayCut114.jpg");
+            $(card4).find("p").html("AP-CD002 飛行控制器");
+
+            $(card5).find("img").attr("src", "/Content/image/DisplayCut115.jpg");
+            $(card5).find("p").html("AP-CD001 手機遙控器");
+        }
+
+
+
+
+    </script>
+
